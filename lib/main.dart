@@ -9,6 +9,19 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$songNumber.wav');
   }
 
+  Widget buildTile({
+    int songNumber,
+    Color color,
+  }) {
+    return Expanded(
+      child: FlatButton(
+          color: color,
+          onPressed: () {
+            playSound(songNumber);
+          }),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,61 +31,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: FlatButton(
-                    color: Colors.red,
-                    onPressed: () {
-                      playSound(1);
-                    }),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.orange,
-                  onPressed: () {
-                    playSound(2);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.yellow,
-                  onPressed: () {
-                    playSound(3);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    playSound(4);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.teal,
-                  onPressed: () {
-                    playSound(5);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    playSound(6);
-                  },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.purple,
-                  onPressed: () {
-                    playSound(7);
-                  },
-                ),
-              ),
+              buildTile(songNumber: 1,color: Colors.red),
+              buildTile(songNumber: 2,color: Colors.orange),
+              buildTile(songNumber: 3,color: Colors.yellow),
+              buildTile(songNumber: 4,color: Colors.green),
+              buildTile(songNumber: 5,color: Colors.teal),
+              buildTile(songNumber: 6,color: Colors.blue),
+              buildTile(songNumber: 7,color: Colors.purple),
             ],
           ),
         ),
